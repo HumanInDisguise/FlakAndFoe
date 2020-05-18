@@ -12,14 +12,27 @@ namespace Projectiles
         public Transform bulletOrigin;
         public GameObject bullet;
 
+        [Header("Settings")]
+        public float timeBetweenBullets = 0.15f;
+
+        // Private variables:
+        float timer;
+
         // Update is called once per frame
         void Update()
         {
+            // Tie 'timer' to the game clock
+            timer += Time.deltaTime;
+
+
             // If fire1 input is received
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)
+
             {
                 // We use a method to fire the bullet
                 FireBullet();
+                // reset timer for next bullet
+                timer = 0;
             }
         }
 
