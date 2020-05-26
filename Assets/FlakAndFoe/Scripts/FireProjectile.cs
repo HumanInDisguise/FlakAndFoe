@@ -10,6 +10,7 @@ namespace Projectiles
         // The header is simply a label that will appear in the Inspector.
         [Header("Public references")]
         public Transform bulletOrigin;
+        public Transform bulletOrigin01;
         public GameObject bullet;
 
         [Header("Settings")]
@@ -33,6 +34,7 @@ namespace Projectiles
                 FireBullet();
                 // reset timer for next bullet
                 timer = 0;
+
             }
         }
 
@@ -43,6 +45,8 @@ namespace Projectiles
 
             // Instantiate the bullet at the point of origin
             Instantiate(bullet, bulletOrigin.position, bulletOrigin.rotation);
+            Instantiate(bullet, bulletOrigin01.position, bulletOrigin01.rotation);
+
 
         }
 
